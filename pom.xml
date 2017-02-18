@@ -120,6 +120,51 @@
             <version>1.0.18</version>
         </dependency>
 
+
+
+
+        <!--测试redis用-->
+        <dependency>
+            <groupId>com.ucf.framework</groupId>
+            <artifactId>framework-core</artifactId>
+            <version>1.0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ucf.framework</groupId>
+            <artifactId>framework-mq</artifactId>
+            <version>1.0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ucf.framework</groupId>
+            <artifactId>framework-serviceframework</artifactId>
+            <version>1.0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ucf.framework</groupId>
+            <artifactId>framework-paginator</artifactId>
+            <version>1.0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ucf.framework</groupId>
+            <artifactId>framework-redis</artifactId>
+            <version>1.0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ucf.framework</groupId>
+            <artifactId>framework-web</artifactId>
+            <version>1.0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.5.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.4.2</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>testproject</finalName>

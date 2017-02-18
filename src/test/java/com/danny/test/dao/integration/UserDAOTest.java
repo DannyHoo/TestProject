@@ -23,6 +23,7 @@ public class UserDAOTest extends BaseDAOSpringTest {
     private UserDAO userDAO;
 
     @Test
+    @Rollback(false)
     public void saveUserTest() {
         UserDO userDO=userDAO.save(getUserDO());
         Assert.assertNotNull(userDO);
