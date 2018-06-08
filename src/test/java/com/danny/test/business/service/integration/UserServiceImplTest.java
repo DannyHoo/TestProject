@@ -1,7 +1,7 @@
-package com.danny.test.service.integration;
+package com.danny.test.business.service.integration;
 
-import com.danny.test.model.data.UserDO;
-import com.danny.test.service.UserService;
+import com.danny.test.business.data.UserDO;
+import com.danny.test.business.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

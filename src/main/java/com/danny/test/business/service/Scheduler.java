@@ -1,4 +1,4 @@
-package com.danny.test.service;
+package com.danny.test.business.service;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

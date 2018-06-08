@@ -1,8 +1,8 @@
-package com.danny.test.dao.integration;
+package com.danny.test.business.dao.integration;
 
-import com.danny.test.dao.BaseDAOSpringTest;
-import com.danny.test.dao.UserDAO;
-import com.danny.test.model.data.UserDO;
+import com.danny.test.business.dao.BaseDAOSpringTest;
+import com.danny.test.business.dao.UserDAO;
+import com.danny.test.business.data.UserDO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

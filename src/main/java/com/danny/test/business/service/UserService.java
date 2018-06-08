@@ -1,6 +1,6 @@
-package com.danny.test.service;
+package com.danny.test.business.service;
 
-import com.danny.test.model.data.UserDO;
+import com.danny.test.business.data.UserDO;
 
 /**
  * @author huyuyang@lxfintech.com

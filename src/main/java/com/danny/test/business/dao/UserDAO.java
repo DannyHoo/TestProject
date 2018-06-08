@@ -1,6 +1,6 @@
-package com.danny.test.dao;
+package com.danny.test.business.dao;
 
-import com.danny.test.model.data.UserDO;
+import com.danny.test.business.data.UserDO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

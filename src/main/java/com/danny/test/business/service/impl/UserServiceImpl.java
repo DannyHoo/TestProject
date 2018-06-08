@@ -1,10 +1,9 @@
-package com.danny.test.service.impl;
+package com.danny.test.business.service.impl;
 
-import com.danny.test.dao.UserDAO;
-import com.danny.test.model.data.UserDO;
-import com.danny.test.service.UserService;
+import com.danny.test.business.dao.UserDAO;
+import com.danny.test.business.data.UserDO;
+import com.danny.test.business.service.UserService;
 import com.ucf.framework.lock.LockHolder;
-import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

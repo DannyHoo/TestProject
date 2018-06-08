@@ -1,4 +1,4 @@
-package com.danny.test.model.data;
+package com.danny.test.business.data;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

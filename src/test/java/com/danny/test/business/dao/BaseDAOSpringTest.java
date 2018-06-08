@@ -1,4 +1,4 @@
-package com.danny.test.dao;
+package com.danny.test.business.dao;
 
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;

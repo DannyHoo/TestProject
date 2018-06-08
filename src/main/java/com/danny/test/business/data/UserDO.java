@@ -1,4 +1,4 @@
-package com.danny.test.model.data;
+package com.danny.test.business.data;
 
 import javax.persistence.*;
 import java.util.Date;
