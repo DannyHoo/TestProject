@@ -8,7 +8,7 @@ import java.util.List;
  * @Title: HeapOOM
  * @Copyright: Copyright (c) 2016
  * @Description: 模拟 堆内存 内存溢出
- * -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+ * -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/Users/dannyhoo/data/jvm/dumpfile.hprof
  * jvm最大内存 jvm最小内存 开启内存堆转储快照
  * @Company: lxjr.com
  * @Created on 2018-06-08 14:50:39

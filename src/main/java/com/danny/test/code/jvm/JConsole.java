@@ -9,7 +9,14 @@ import java.util.concurrent.ThreadFactory;
  * @Title: JConsole
  * @Copyright: Copyright (c) 2016
  * @Description:
- * -Xms100m -Xmx100m -XX:+UseSerialGC ﻿-Xloggc:/Users/dannyhoo/data/jvm/gc.log
+ *
+-Xms100m
+-Xmx100m
+-XX:+PrintGCDetails
+-XX:+PrintGCTimeStamps
+-XX:+PrintGCDateStamps
+-Xloggc:/Users/dannyhoo/data/jvm/gc.log
+-verbose:gc
  * @Company: lxjr.com
  * @Created on 2018-07-11 14:47:44
  */
@@ -22,7 +29,7 @@ public class JConsole {
     public static void fillHeap(int num) throws InterruptedException {
         List<OOMObject> oomObjectList=new ArrayList<>();
         for (int i=0;i<num;i++){
-            Thread.sleep(50);
+            Thread.sleep(10);
             oomObjectList.add(new OOMObject());
         }
         //System.gc();
