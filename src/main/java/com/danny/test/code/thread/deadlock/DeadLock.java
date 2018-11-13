@@ -1,5 +1,7 @@
 package com.danny.test.code.thread.deadlock;
 
+import java.util.Date;
+
 /**
  * @author huyuyang@lxfintech.com
  * @Title: DeadLock
@@ -16,6 +18,19 @@ public class DeadLock {
 
     public static void main(String[] args) {
         deadLockTest();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    System.out.println("现在时间："+new Date());
+                    try {
+                        Thread.currentThread().sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 
     private static void deadLockTest() {

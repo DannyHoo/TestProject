@@ -2,7 +2,7 @@ package com.danny.test.code.jvm;
 
 /**
  * @author huyuyang@lxfintech.com
- * @Title: VolatileTest
+ * @Title: VolatileNotAtomicTest
  * @Copyright: Copyright (c) 2016
  * @Description:
  * @Company: lxjr.com

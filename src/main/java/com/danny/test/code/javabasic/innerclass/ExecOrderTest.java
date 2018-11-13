@@ -2,14 +2,14 @@ package com.danny.test.code.javabasic.innerclass;
 
 /**
  * @author huyuyang@lxfintech.com
- * @Title: Main
+ * @Title: ExecOrderTest
  * @Copyright: Copyright (c) 2016
  * @Description:
  * @Company: lxjr.com
  * @Created on 2018-08-24 14:31:44
  */
-public class Main {
-    private static String className="Main";
+public class ExecOrderTest {
+    private static String className="ExecOrderTest";
 
     static {
         System.out.println("静态代码块");
@@ -20,6 +20,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(Main.className);
+        System.out.println(ExecOrderTest.className);
     }
 }
