@@ -12,21 +12,29 @@ import java.util.concurrent.FutureTask;
  */
 public class CreateThread {
 
-    private int cycleNum=10;
+    private int cycleNum = 10;
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        CreateThread createThread=new CreateThread();
+        CreateThread createThread = new CreateThread();
 
-        Thread1 thread1=createThread.new Thread1();
+        Thread1 thread1 = createThread.new Thread1();
         thread1.start();
 
-        Thread thread2=new Thread(createThread.new Thread2());
+        Thread thread2 = new Thread(createThread.new Thread2());
         thread2.start();
 
-        Thread3 thread3=createThread.new Thread3();
-        FutureTask<Integer> futureTask=new FutureTask<Integer>(thread3);
+        Thread3 thread3 = createThread.new Thread3();
+        FutureTask<Integer> futureTask = new FutureTask<Integer>(thread3);
         new Thread(futureTask).start();
-        System.out.println("Thread3 execute result:"+futureTask.get());
+        //带有【futureTask.get()】的语句后面所有代码都会阻塞，等待线程执行结束
+        System.out.println("Thread3 execute result:" + futureTask.get());
+
+        //以下代码都会等待
+        System.out.println("等待Thread3获取结果");
+        int a = 10 + 90;
+        System.out.println(a);
+
+
     }
 
     class Thread1 extends Thread {
@@ -35,7 +43,7 @@ public class CreateThread {
             for (int i = 0; i < cycleNum; i++) {
                 System.out.println("Thread1 is running");
                 try {
-                    Thread.currentThread().sleep(1000);
+                    Thread.currentThread().sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -50,7 +58,7 @@ public class CreateThread {
             for (int i = 0; i < cycleNum; i++) {
                 System.out.println("Thread2 is running");
                 try {
-                    Thread.currentThread().sleep(1000);
+                    Thread.currentThread().sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -67,7 +75,7 @@ public class CreateThread {
                 System.out.println("Thread3 is running");
                 count++;
                 try {
-                    Thread.currentThread().sleep(1000);
+                    Thread.currentThread().sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -76,4 +84,5 @@ public class CreateThread {
             return count;
         }
     }
+
 }

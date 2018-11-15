@@ -16,7 +16,6 @@ public class ReentrantLockTest {
     public static void main(String[] args) throws InterruptedException {
         Thread thread1 = new Thread(new CounterA());
         Thread thread2 = new Thread(new CounterA());
-
         thread1.start();
         thread2.start();
 

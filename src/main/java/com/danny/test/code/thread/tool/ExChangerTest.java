@@ -22,6 +22,7 @@ public class ExChangerTest {
             @Override
             public void run() {
                 String totalNum = "100";//线程A计算结果
+                System.out.println("线程A计算结果为："+totalNum);
                 try {
                     String totalNumTemp = exchanger.exchange(totalNum);//阻塞直到另一个线程调用exchange()方法
                     System.out.println("A——从B线程拿到的结果为：" + totalNumTemp);
@@ -35,6 +36,7 @@ public class ExChangerTest {
             @Override
             public void run() {
                 String totalNum = "101";//线程B计算结果
+                System.out.println("线程B计算结果为："+totalNum);
                 try {
                     Thread.currentThread().sleep(3000);
                     String totalNumTemp = exchanger.exchange(totalNum);//阻塞直到另一个线程调用exchange()方法

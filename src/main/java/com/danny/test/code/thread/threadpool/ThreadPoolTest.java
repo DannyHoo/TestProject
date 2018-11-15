@@ -1,5 +1,6 @@
 package com.danny.test.code.thread.threadpool;
 
+import java.util.Random;
 import java.util.concurrent.*;
 
 /**
@@ -27,12 +28,15 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) {
         Thread[] threads = getThreads(9);
+        Callable[] callables = getCallables(9);
+
         //fixedThreadPoolExecute(3, threads);
+        fixedThreadPoolSubmit(3, callables);
         //singleThreadPoolExecute(threads);
         //cachedThreadPoolExecute(threads);
         //scheduledThreadPoolExecute(5, threads);
         //singleScheduledThreadPoolExecute(threads);
-        customThreadPoolExecute(2, 3, 2, TimeUnit.MICROSECONDS, 5, threads);
+        //customThreadPoolExecute(2, 3, 2, TimeUnit.MICROSECONDS, 5, threads);
     }
 
     // 固定大小线程池，执行顺序无序
@@ -44,6 +48,23 @@ public class ThreadPoolTest {
             for (Thread thread : threads) {
                 threadPool.execute(thread);
             }
+        } finally {
+            if (threadPool != null) threadPool.shutdown();
+        }
+    }
+
+    public static void fixedThreadPoolSubmit(int poolSize, Callable[] threads) {
+        ExecutorService threadPool = null;
+        try {
+            threadPool = Executors.newFixedThreadPool(poolSize);
+            for (Callable callable : threads) {
+                Future future = threadPool.submit(callable);
+                System.out.println(future.get());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         } finally {
             if (threadPool != null) threadPool.shutdown();
         }
@@ -155,9 +176,7 @@ public class ThreadPoolTest {
     }
 
     private static Thread[] getThreads(int threadNum) {
-        if (threadNum < 1) {
-            return new Thread[]{};
-        }
+        if (threadNum < 1) return new Thread[]{};
         Thread[] threads = new Thread[threadNum];
         for (int i = 0; i < threadNum; i++) {
             threads[i] = new Thread(new MyThread("线程" + (i + 1)));
@@ -165,4 +184,17 @@ public class ThreadPoolTest {
         return threads;
     }
 
+    private static Callable[] getCallables(int callableNum) {
+        if (callableNum < 1) return new Callable[]{};
+        Callable[] callables=new Callable[callableNum];
+        for (int i=0;i<callableNum;i++){
+            callables[i]=new Callable() {
+                @Override
+                public Object call() throws Exception {
+                    return new Random().nextInt(100);
+                }
+            };
+        }
+        return callables;
+    }
 }
