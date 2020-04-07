@@ -1,13 +1,10 @@
 package com.code.jvm;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: StackSOF
- * @Copyright: Copyright (c) 2016
  * @Description: 模拟占内存 栈溢出
  * -Xss160k
  * The stack size specified is too small, Specify at least 160k
- * @Company: lxjr.com
  * @Created on 2018-06-08 15:58:17
  */
 public class StackSOF {

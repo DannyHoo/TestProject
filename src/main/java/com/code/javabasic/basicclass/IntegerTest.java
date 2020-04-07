@@ -6,12 +6,9 @@ import java.lang.reflect.Field;
 import java.time.Period;
 import java.time.ZoneId;
 /**
- * @author huyuyang@lxfintech.com
  * @Title: IntegerTest
- * @Copyright: Copyright (c) 2016
  * @Description: Java中Integer和String作为函数参数传递的方式是传值
  * https://mp.weixin.qq.com/s/xf1USfUFBGYZZB68gbFHqg
- * @Company: lxjr.com
  * @Created on 2018-07-25 10:27:27
  */
 public class IntegerTest {

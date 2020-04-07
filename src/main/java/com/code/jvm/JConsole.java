@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: JConsole
- * @Copyright: Copyright (c) 2016
  * @Description:
  *
 -Xms100m
@@ -17,7 +15,6 @@ import java.util.concurrent.ThreadFactory;
 -XX:+PrintGCDateStamps
 -Xloggc:/Users/dannyhoo/data/jvm/gc.log
 -verbose:gc
- * @Company: lxjr.com
  * @Created on 2018-07-11 14:47:44
  */
 public class JConsole {

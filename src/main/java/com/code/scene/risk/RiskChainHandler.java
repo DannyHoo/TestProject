@@ -1,8 +1,6 @@
 package com.code.scene.risk;
 
 /**
- * @author huyuyang
- * @email yuyang.hu@opay-inc.com
  * @date 2019/10/31下午6:31
  */
 public class RiskChainHandler<T> implements RiskChain<T> {

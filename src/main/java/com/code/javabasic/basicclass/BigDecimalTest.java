@@ -3,11 +3,8 @@ package com.code.javabasic.basicclass;
 import java.math.BigDecimal;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: BigDecimalTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-09-04 16:05:29
  */
 public class BigDecimalTest {

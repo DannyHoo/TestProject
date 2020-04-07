@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author huyuyang
- * @email yuyang.hu@opay-inc.com
  * @date 2019/11/2下午4:25
  */
 @Controller

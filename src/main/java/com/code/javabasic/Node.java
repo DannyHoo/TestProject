@@ -1,11 +1,8 @@
 package com.code.javabasic;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: Node
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-08-23 17:05:21
  */
 public class Node<K, V> {

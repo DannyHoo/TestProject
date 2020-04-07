@@ -1,12 +1,9 @@
 package com.code.jvm;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: StackOOM
- * @Copyright: Copyright (c) 2016
  * @Description:
  * -Xmx20m -Xss2m
- * @Company: lxjr.com
  * @Created on 2018-06-08 16:18:37
  */
 public class StackOOM {

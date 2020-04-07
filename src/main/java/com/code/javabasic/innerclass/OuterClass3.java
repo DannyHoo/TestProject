@@ -1,11 +1,8 @@
 package com.code.javabasic.innerclass;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: OuterClass3
- * @Copyright: Copyright (c) 2016
  * @Description: 局部内部类
- * @Company: lxjr.com
  * @Created on 2018-08-24 15:42:46
  */
 public class OuterClass3 {

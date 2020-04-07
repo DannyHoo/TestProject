@@ -4,11 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: MyClassLoader
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-08-08 14:00:30
  */
 public class MyClassLoader extends ClassLoader{

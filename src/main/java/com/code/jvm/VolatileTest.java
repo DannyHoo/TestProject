@@ -1,11 +1,8 @@
 package com.code.jvm;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: VolatileNotAtomicTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-07-23 19:08:53
  */
 public class VolatileTest {

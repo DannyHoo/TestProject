@@ -1,11 +1,8 @@
 package com.code.javabasic.innerclass;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: ExecOrderTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-08-24 14:31:44
  */
 public class ExecOrderTest {

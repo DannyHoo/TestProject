@@ -15,11 +15,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: HashMapTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-08-22 16:20:42
  */
 public class HashMapTest {

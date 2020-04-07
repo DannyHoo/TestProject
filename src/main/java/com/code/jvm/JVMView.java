@@ -1,12 +1,9 @@
 package com.code.jvm;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: JVMView
- * @Copyright: Copyright (c) 2016
  * @Description:
  * https://blog.csdn.net/rickyit/article/details/53895060
- * @Company: lxjr.com
  * @Created on 2018-06-08 16:10:33
  */
 public class JVMView {

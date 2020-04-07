@@ -16,8 +16,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 /**
- * @author huyuyang
- * @email yuyang.hu@opay-inc.com
  * @date 2019/10/29下午9:55
  */
 public class TimeZoneTest {

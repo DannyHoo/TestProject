@@ -17,8 +17,6 @@ import java.util.concurrent.atomic.AtomicLong;
  *
  * https://www.cnblogs.com/yw-ah/p/8512799.html
  *
- * @author huyuyang
- * @email yuyang.hu@opay-inc.com
  * @date 2019/10/30上午11:44
  */
 public class SimpleDateFormatUnSafeTest {

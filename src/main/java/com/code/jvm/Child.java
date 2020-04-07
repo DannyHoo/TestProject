@@ -3,11 +3,8 @@ package com.code.jvm;
 import java.util.ArrayList;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: Child
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-08-07 17:23:00
  */
 

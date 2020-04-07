@@ -1,11 +1,8 @@
 package com.code.thread.deadlock;
 
 /**
- * @author huyuyang@lxfintech.com
  * @Title: DeadLock
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-08-23 22:58:13
  */
 public class DeadLock {

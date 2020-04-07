@@ -13,8 +13,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * @author huyuyang
- * @email yuyang.hu@opay-inc.com
  * @date 2019/10/24下午4:43
  */
 @Slf4j
