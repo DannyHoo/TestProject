@@ -15,7 +15,8 @@ public class NoRepeatRandom {
 
         long startTime=System.currentTimeMillis();
         putRandomNumberIntoArrays2(arrays);
-        System.out.println("随机耗时："+(System.currentTimeMillis()-startTime));
+
+        System.out.println("执行完成，随机耗时："+(System.currentTimeMillis()-startTime)+" 结果：\n");
 
         printArr(arrays);
 
@@ -63,7 +64,9 @@ public class NoRepeatRandom {
         for (int i = 0; i < data.length; i++) {
             data[i] = i + 1;
         }
+        System.out.println("初始化原数组：");
         printArr(data);
+        System.out.println();
 
         int count = 0;
         int i = 1;
@@ -71,14 +74,16 @@ public class NoRepeatRandom {
 
             int rand = new Random().nextInt(datalength--);
             System.out.println("第" + i++ + "次生成随机数："+rand);
-            printArr(data);
 
             int tmp = data[rand];
             data[rand] = data[datalength];
             data[datalength] = tmp;
+            System.out.println("原数组：");
+            printArr(data);
 
             arrays[count++] = data[datalength];
 
+            System.out.println("新数组：");
             printArr(arrays);
             System.out.println();
         } while (count != arrays.length);

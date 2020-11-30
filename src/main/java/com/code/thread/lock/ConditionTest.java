@@ -32,7 +32,7 @@ public class ConditionTest {
                         condition.await();
                     }
                     System.out.println(Thread.currentThread().getName() + "获取锁，开始执行");
-                    Thread.currentThread().sleep(2000);
+                    Thread.sleep(2000);
                     exec = "Consumer";
                     condition.signalAll();
 
@@ -55,7 +55,7 @@ public class ConditionTest {
                         condition.await();
                     }
                     System.out.println(Thread.currentThread().getName() + "获取锁，开始执行");
-                    Thread.currentThread().sleep(2000);
+                    Thread.sleep(2000);
                     exec = "Producer";
                     condition.signalAll();
                 } catch (InterruptedException e) {

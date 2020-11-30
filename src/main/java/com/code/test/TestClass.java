@@ -1,6 +1,9 @@
 package com.code.test;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.Transformer;
+import org.apache.commons.collections4.functors.InvokerTransformer;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,9 +16,23 @@ import java.util.Scanner;
  * @Description:
  * @Created on 2017-01-17 00:17:17
  */
+@Slf4j
 public class TestClass {
 
     public static void main(String[] args) {
+        A a=null;
+        try{
+            a.setAge(1);
+        }catch (Exception e){
+            log.error(e.getMessage(),e);
+        }
+
+
+        Transformer transformer = new InvokerTransformer("exec",
+                new Class[] {String.class},
+                new Object[] {"open /Applications/Calculator.app"});
+
+        transformer.transform(Runtime.getRuntime());
 
         A a1=new A("a1",1);
         A a2=new A();

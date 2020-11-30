@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>https-http</title>
+    <link href="http://cdn.staticfile.org/animate.css/4.1.0/animate.compat.css" type="text/css" >
+    <script src="http://cdn.staticfile.org/react/16.13.1/cjs/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<img src="http://ww4.sinaimg.cn/bmiddle/6910ab7bgw1egloghsfi3j20b40b40t6.jpg"/>
+<script type="text/javascript">
+    const url = "http://getjson.cn/api/get/nkK3HHTUieWI25fA";
+    $(document).ready(function () {
+        $(document.body).attr('style', 'cursor:pointer;');
+        $.ajax({
+            url: url,
+            async: true,
+            success: function (result) {
+                try {
+                    var jsonResult = JSON.stringify(result);
+                    console.log(jsonResult);
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

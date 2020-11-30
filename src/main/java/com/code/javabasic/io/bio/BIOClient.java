@@ -15,35 +15,25 @@ import java.util.concurrent.Executors;
  */
 public class BIOClient {
     public static void main(String[] args) throws IOException, InterruptedException {
-        ExecutorService threadPool= Executors.newCachedThreadPool();
+        //createSocketAndSendMessage();
+        createSocketAndSendMessageMultiple();
+    }
 
-        BIOClient client=new BIOClient();
-        Socket socket=null;
-        try {
-            socket=client.createSocket();
-            client.sendMessage(socket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-       /* while (true){
-            Thread.sleep(new Random().nextInt(1000));
+    public static void createSocketAndSendMessageMultiple() throws InterruptedException {
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        while (true) {
+            Thread.sleep(new Random().nextInt(5000));
             threadPool.submit(new Runnable() {
                 @Override
                 public void run() {
-                    BIOClient client=new BIOClient();
-                    Socket socket=null;
+                    BIOClient client = new BIOClient();
+                    Socket socket = null;
                     try {
-                        socket=client.createSocket();
+                        socket = client.createSocket();
                         client.sendMessage(socket);
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }finally {
+                    } finally {
                         try {
                             socket.close();
                         } catch (IOException e) {
@@ -52,16 +42,33 @@ public class BIOClient {
                     }
                 }
             });
-        }*/
+        }
+    }
+
+    public static void createSocketAndSendMessage() {
+        BIOClient client = new BIOClient();
+        Socket socket = null;
+        try {
+            socket = client.createSocket();
+            client.sendMessage(socket);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Socket createSocket() throws IOException {
-        return new Socket("127.0.0.1",8080);
+        return new Socket("127.0.0.1", 8080);
     }
 
     public void sendMessage(Socket socket) throws IOException {
-        String content="This is a message from a client!";
-        OutputStream outputStream=socket.getOutputStream();
+        String content = "This is a message from a client!";
+        OutputStream outputStream = socket.getOutputStream();
         outputStream.write(new String(content).getBytes());
         outputStream.flush();
         outputStream.close();

@@ -59,7 +59,7 @@ public class NIOServer {
             //遍历选择器当前的所有事件
             while (iterator.hasNext()){
                 SelectionKey selectionKey=iterator.next();
-                handleKey(selectionKey);//业务逻辑处理
+                handleKey(selectionKey);//业务逻辑处理  此处可以用多线程处理
                 iterator.remove();//删除已经处理的事件
                 Thread.sleep(1000);
             }

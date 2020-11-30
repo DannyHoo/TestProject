@@ -16,9 +16,13 @@ public class ManagementController {
 
     @RequestMapping(value = "/page/{page}")
     public String page(@PathVariable("page") String page) {
-        return "page/"+page;
+        return "page/" + page;
     }
 
+    @RequestMapping(value = "/page/{page1}/{page2}")
+    public String page(@PathVariable("page1") String page1, @PathVariable("page1") String page2) {
+        return "page/" + page1 + "/" + page2;
+    }
 
     @RequestMapping(value = "/management/login")
     public String login() {

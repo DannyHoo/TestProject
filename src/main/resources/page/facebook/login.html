@@ -1,0 +1,41 @@
+
+<html>
+<head>
+    <!-- 官方文档：https://developers.facebook.com/docs/facebook-login/web -->
+    <!--<script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '252781575771531',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v6.0'
+            });
+        };
+    </script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+-->
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=252781575771531&autoLogAppEvents=1"></script>
+
+    <script>
+        function login() {
+            FB.login(function(response){
+                console.log(response);
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+Facebook登录<br>
+
+<!-- 自定义登录按钮 -->
+<button id="loginBtn" onclick="login();" >登录</button> <br/>
+
+<!-- Facebook现成登录按钮 -->
+<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+
+</body>
+</html>

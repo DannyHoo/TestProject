@@ -8,8 +8,6 @@ import com.code.designpattern.creational.singleton.frame.Singleton6;
 import java.util.ArrayList;
 import java.util.List;
 
-import static sun.jvm.hotspot.runtime.PerfMemory.start;
-
 /**
  * @author
  * @Title: Main

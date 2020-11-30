@@ -32,8 +32,9 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @ResponseBody
     public List<Student> getAllStudent() {
-        logger.info("yyyyyyyyyy");
+        logger.info("yyyyyyyyyy号");
         return studentRepository.findAll();
     }
 

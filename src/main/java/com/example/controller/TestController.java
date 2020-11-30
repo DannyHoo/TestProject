@@ -1,9 +1,9 @@
 package com.example.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -15,11 +15,16 @@ import java.util.*;
  * @date 2020/2/10上午10:46
  */
 @RestController
-@RequestMapping("/test")
+@Slf4j
 public class TestController {
 
-    @RequestMapping("/get/tkl")
-    public String get(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @RequestMapping(value = "/test/copy")
+    public String login() {
+        return "copy/copy";
+    }
+
+    @RequestMapping("/test/get/tkl")
+    public JSONObject get(HttpServletRequest request, HttpServletResponse response) throws IOException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("tkl", "oF8JKE7oEP");
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -27,7 +32,31 @@ public class TestController {
         //response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE,PUT");
         /*response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with");*/
-        return jsonObject.toJSONString();
+        return jsonObject;
+    }
+
+    @RequestMapping("/open/get/test/{id}")
+    public JSONObject getTest(@PathVariable("id") Long id, @RequestParam("type") String type) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", id);
+        jsonObject.put("type", type);
+        return jsonObject;
+    }
+
+    @RequestMapping("/open/post/test")
+    public JSONObject postTest(@RequestBody JSONObject request) {
+        return request;
+    }
+
+    @RequestMapping("/open/post")
+    public JSONObject post(@RequestBody JSONObject request) {
+        return request;
+    }
+
+    @PostMapping ("/xml/to/json/1")
+    public JSONObject xmlToJson1(@RequestBody JSONObject body,HttpServletRequest request) {
+        log.info("body {}",body);
+        return body;
     }
 
     /**
@@ -77,4 +106,8 @@ public class TestController {
             return Collections.enumeration(set);
         }
     }
+
+
+
+
 }

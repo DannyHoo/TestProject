@@ -1,11 +1,13 @@
+
+
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://rm-8vb7n7u26z2dgfci6uo.mysql.zhangbei.rds.aliyuncs.com/test?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1/test?useUnicode=true&characterEncoding=UTF-8
       username: root
-      password: Danny6688
+      password: 123456
       initial-size: 10
       max-active: 100
       min-idle: 10
@@ -43,5 +45,21 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+#Spring Mvc和Spring Boot配置Tomcat支持Https https://www.cnblogs.com/luoluoshidafu/p/9504106.html
+# keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+# keytool -importkeystore -srckeystore keystore.p12 -destkeystore ./new/keystore.p12 -deststoretype pkcs12
 
+# keytool -genkey -alias tomcat -keypass 123456 -keyalg RSA -keysize 1024 -validity 3650 -keystore D:\keystore\keystore.p12 -storepass 123456
+# keytool -importkeystore -srckeystore D:\keystore\keystore.p12 -destkeystore D:\keystore\new\keystore.p12 -deststoretype pkcs12
 
+server:
+  port: 3000
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: 123456
+#    key-store-type: PKCS12
+#    key-alias: tomcat
