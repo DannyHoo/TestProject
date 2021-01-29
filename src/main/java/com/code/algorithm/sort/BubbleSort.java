@@ -10,12 +10,15 @@ package com.code.algorithm.sort;
  */
 public class BubbleSort extends BaseSort {
 
-    private static int arr[]=new int[]{21,65,13,44,5,9,98,12,13,31,90,44,69,55,19,33};
-    //private staticc int arr[]=new int[]{1,2,3,4,5};
+    //private static int arr[]=new int[]{1,2,3,4,5};
+    //private static int arr[]=new int[]{21,65,13,44,5,9,98,12,13,31,90,44,69,55,19,33};
+    private static int arr[]=getMoreRandomNumbers(10000);
 
     public static void main(String[] args) {
+        long startTime=System.currentTimeMillis();
         sort(arr);
-        printArr(arr);
+        System.out.println("consume time: "+(System.currentTimeMillis()-startTime));
+        //printArr(arr);
     }
 
     public static void sort(int arr[]){
@@ -34,12 +37,5 @@ public class BubbleSort extends BaseSort {
             }
         }
     }
-
-    protected static void swap(int[] arr, int i, int j) {
-        int temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-    }
-
 
 }

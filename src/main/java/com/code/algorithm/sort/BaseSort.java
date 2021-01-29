@@ -1,6 +1,9 @@
 package com.code.algorithm.sort;
 
+import java.util.Random;
+
 public class BaseSort {
+
     protected static void swap(int[] arr, int i, int j) {
         int temp=arr[i];
         arr[i]=arr[j];
@@ -17,4 +20,13 @@ public class BaseSort {
             }
         }
     }
+
+    public static int[] getMoreRandomNumbers(int length) {
+        int[] arr=new int[length];
+        for (int i=0;i<length;i++){
+            arr[i]=new Random().nextInt(length);
+        }
+        return arr;
+    }
+
 }
