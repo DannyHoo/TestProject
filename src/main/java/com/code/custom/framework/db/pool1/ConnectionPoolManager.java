@@ -1,4 +1,4 @@
-package com.code.custom.framework.db.pool;
+package com.code.custom.framework.db.pool1;
 
 import com.code.utils.PropertyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +37,7 @@ public class ConnectionPoolManager {
         for (String node : nodeNames) {
             String driver;
             ConnectionPoolProperty connectionPoolProperty = new ConnectionPoolProperty()
+                    .setNodeName(node)
                     .setDriver(driver = PropertyUtil.getStringProperty(String.format("custom.datasource.pool.%s.driver", node)))
                     .setUrl(PropertyUtil.getStringProperty(String.format("custom.datasource.pool.%s.url", node)))
                     .setUserName(PropertyUtil.getStringProperty(String.format("custom.datasource.pool.%s.userName", node)))
@@ -48,6 +49,7 @@ public class ConnectionPoolManager {
                     .setConninterval(PropertyUtil.getLongProperty(String.format("custom.datasource.pool.%s.conninterval", node)));
             if (!drivers.contains(driver)) {
                 Class.forName(driver);
+                drivers.add(driver);
                 log.info("Driver {} loaded success.", driver);
             }
             IConnectionPool connectionPool = new ConnectionPool(connectionPoolProperty);
@@ -75,6 +77,14 @@ public class ConnectionPoolManager {
             throw new Exception("connectionPool is null");
         }
         return connectionPool.getConnection();
+    }
+
+    public void releaseConnection(String poolName, Connection connection) throws Exception {
+        IConnectionPool connectionPool = connectionPools.get(poolName);
+        if (connectionPool == null) {
+            throw new Exception("connectionPool is null");
+        }
+        connectionPool.releaseConnection(connection);
     }
 
 

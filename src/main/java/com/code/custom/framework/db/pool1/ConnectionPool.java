@@ -1,9 +1,8 @@
-package com.code.custom.framework.db.pool;
+package com.code.custom.framework.db.pool1;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 
 import java.sql.Connection;
@@ -11,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.TimerTask;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -54,7 +52,7 @@ public class ConnectionPool implements IConnectionPool {
                 throw e;
             }
         }
-        log.info("ConnectionPool init success. initConnections:{}", connectionPoolProperty.getInitConnections());
+        log.info("ConnectionPool {} init success. initConnections:{}", connectionPoolProperty.getNodeName(),connectionPoolProperty.getInitConnections());
     }
 
     /**
@@ -63,29 +61,31 @@ public class ConnectionPool implements IConnectionPool {
      * @return
      */
     @Override
-    public Connection getConnection() throws SQLException, InterruptedException {
+    public Connection getConnection() throws Exception {
         Connection connection = getConnection(connectionPoolProperty.getTimeout(), connectionPoolProperty.getConninterval());
         return connection;
     }
 
-    private synchronized Connection getConnection(long timeout, long conninterval) throws SQLException, InterruptedException {
+    private synchronized Connection getConnection(long timeout, long conninterval) throws Exception {
         Connection connection = null;
         long startTime = System.currentTimeMillis();
 
         // 连接池中有空闲连接
         if (!freeConnections.isEmpty()) {
             connection = freeConnections.poll();
+            //log.info("getConnection-get connection from freeConnections");
         }
 
         // 连接池中无空闲连接且当前活动连接数小于最大连接数
         if (freeConnections.isEmpty() && activeConnections.size() < connectionPoolProperty.getMaxConnections()) {
             //创建新的连接
             connection = DriverManager.getConnection(connectionPoolProperty.getUrl(), connectionPoolProperty.getUserName(), connectionPoolProperty.getPassword());
+            //log.info("getConnection-create new connection");
         }
 
         // 连接池中无空闲连接且当前活动连接数等于最大连接数
         if (freeConnections.isEmpty() && activeConnections.size() == connectionPoolProperty.getMaxConnections()) {
-
+            //log.info("getConnection-no connection");
         }
 
         if (isValidConnection(connection)) {
@@ -94,11 +94,17 @@ public class ConnectionPool implements IConnectionPool {
         } else {
             if (timeout > 0 && conninterval > 0) {
                 // 如果超时时间小于重连间隔，只休眠超时时间后重新获取连接
+                //log.info("getConnection-start wait");
                 this.wait(Math.min(timeout, conninterval));
                 long consumeTime = System.currentTimeMillis() - startTime;
                 if (consumeTime < timeout) {
+                    //log.info("getConnection-retry");
                     connection = getConnection(timeout - consumeTime, conninterval);
+                }else{
+                    throw new Exception("can not get more connection");
                 }
+            }else{
+                throw new Exception("can not get more connection");
             }
         }
 

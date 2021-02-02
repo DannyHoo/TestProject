@@ -1,4 +1,4 @@
-package com.code.custom.framework.db.pool;
+package com.code.custom.framework.db.pool1;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public interface IConnectionPool {
      *
      * @return
      */
-    Connection getConnection() throws SQLException, InterruptedException;
+    Connection getConnection() throws Exception;
 
     /**
      * 获得当前线程的连接库连接

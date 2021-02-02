@@ -63,3 +63,28 @@ server:
 #    key-store-password: 123456
 #    key-store-type: PKCS12
 #    key-alias: tomcat
+
+custom:
+  datasource:
+    pool:
+      nodename: node2
+      node1:
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/hishop_user
+        userName: root
+        password: 123456
+        initConnections: 10
+        minConnections: 10
+        maxConnections: 20
+        timeout: 5000
+        conninterval: 500
+      node2:
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://152.32.141.88:3306/jrkj-py?characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&serverTimezone=Africa/Lagos
+        userName: root
+        password: mysqlP@ss1
+        initConnections: 20
+        minConnections: 20
+        maxConnections: 20
+        timeout: 10000
+        conninterval: 1000

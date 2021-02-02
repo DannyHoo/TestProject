@@ -1,4 +1,4 @@
-package com.code.custom.framework.db.pool;
+package com.code.custom.framework.db.pool1;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

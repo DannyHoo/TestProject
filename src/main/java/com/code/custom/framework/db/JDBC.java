@@ -69,15 +69,22 @@ public class JDBC {
     }
 
 
-    private static <T> T queryByStatement(String url, String user, String password, String sql) throws SQLException {
+    public static <T> T queryByStatement(String url, String user, String password, String sql) throws SQLException {
         Connection connection = DriverManager.getConnection(url, user, password);
-        //Statement statement = connection.createStatement();
-        //ResultSet resultSet = statement.executeQuery(sql);
-//        resultSet.close();
-//        statement.close();
-//        connection.close();
-        //return (T) resultSet;
-        return null;
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        resultSet.close();
+        statement.close();
+        connection.close();
+        return (T) resultSet;
+    }
+
+    public static <T> T queryByConnection(Connection connection, String sql) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        resultSet.close();
+        statement.close();
+        return (T) resultSet;
     }
 
 
@@ -87,5 +94,10 @@ public class JDBC {
      */
     public static void preparedStatementTest() {
 
+    }
+
+    public Connection getConnection(String url, String user, String password) throws SQLException {
+        Connection connection = DriverManager.getConnection(url, user, password);
+        return connection;
     }
 }
