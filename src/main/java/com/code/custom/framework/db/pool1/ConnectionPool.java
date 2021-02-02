@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author danny
  * @date 2021/1/29下午10:44
+ * 从零开始实现Java多线程数据库连接池 https://blog.csdn.net/soonfly/article/details/72731144
  */
 @Slf4j
 @Data
